@@ -132,7 +132,7 @@ namespace MCP23017 {
 
     //% block
     export function readRegister(addr: ADDRESS, reg: REG_PIO): number {
-        pins.i2cWriteNumber(addr, reg+9, NumberFormat.Int8LE);
+        pins.i2cWriteNumber(addr, reg+(9<<8), NumberFormat.Int8LE);
         return pins.i2cReadNumber(addr, NumberFormat.Int8LE)
     }
 
