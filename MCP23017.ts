@@ -36,6 +36,12 @@ namespace MCP23017 {
     export function setAddr(addr: ADDRESS) {
         _addr = addr;
     }
+
+    //% block
+    export function SetIoDir(val1: number,val2: number) {
+        writeRegSeq2(val1,val2)
+    }
+
     //% block
     export function readReg(reg: number): number {
         pins.i2cWriteNumber(
