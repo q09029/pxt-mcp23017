@@ -3,13 +3,13 @@
  *  MCP23017-control blocks
  */
 
-let outputABuffer = 0;
-let outputBBuffer = 0;
+let inputABuffer = 0;
+let inputBBuffer = 0;
 let _addr = 0x20;
 
 enum MCP23017REG {
     //% block=IODIRA
-    IODIRA=0,
+    IODIRA = 0,
     //% block=IODIRB
     IODIRB,
     //% block=IPOLA
@@ -84,8 +84,13 @@ namespace MCP23017 {
     }
 
     //% block
-    export function SetIoDir(val1: number,val2: number) {
-        writeRegSeq2(MCP23017REG.IODIRA,val1,val2)
+    export function SetIoDir(val1: number, val2: number) {
+        writeRegSeq2(MCP23017REG.IODIRA, val1, val2)
+    }
+
+    //% block
+    export function ReadToBuffer() {
+        readReg(MCP23017REG.GPIOA)
     }
 
     //% block
