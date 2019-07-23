@@ -85,11 +85,11 @@ namespace MCP23017 {
 
     //% block
     export function SetIoDir(val1: number,val2: number) {
-        writeRegSeq2(IODIRA,val1,val2)
+        writeRegSeq2(MCP23017REG.IODIRA,val1,val2)
     }
 
     //% block
-    export function readReg(reg: number): number {
+    export function readReg(reg: MCP23017REG): number {
         pins.i2cWriteNumber(
             _addr,
             reg,
@@ -100,7 +100,7 @@ namespace MCP23017 {
     }
 
     //% block
-    export function writeReg(reg: number, val: number) {
+    export function writeReg(reg: MCP23017REG, val: number) {
         pins.i2cWriteNumber(
             _addr,
             reg,
@@ -116,7 +116,7 @@ namespace MCP23017 {
     }
 
     //% block
-    export function writeRegSeq2(reg: number, val1: number, val2: number) {
+    export function writeRegSeq2(reg: MCP23017REG, val1: number, val2: number) {
         pins.i2cWriteNumber(
             _addr,
             reg,
