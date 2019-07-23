@@ -38,14 +38,29 @@ namespace MCP23017 {
     }
     //% block
     export function readReg(reg: number): number {
-        pins.i2cWriteNumber(_addr, reg, NumberFormat.Int8LE);
-        return pins.i2cReadNumber(_addr, NumberFormat.Int8LE)
+        pins.i2cWriteNumber(
+            _addr,
+            reg,
+            NumberFormat.Int8LE,
+            true
+        )
+        return pins.i2cReadNumber(_addr, NumberFormat.Int8LE, false)
     }
 
     //% block
     export function writeReg(reg: number, val: number) {
-        pins.i2cWriteNumber(_addr, reg, NumberFormat.Int8LE);
-        pins.i2cWriteNumber(_addr, val, NumberFormat.Int8LE);
+        pins.i2cWriteNumber(
+            _addr,
+            reg,
+            NumberFormat.Int8LE,
+            true
+        )
+        pins.i2cWriteNumber(
+            _addr,
+            val,
+            NumberFormat.Int8LE,
+            false
+        )
     }
 
 }
