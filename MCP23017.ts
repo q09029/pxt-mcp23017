@@ -73,7 +73,7 @@ namespace MCP23017 {
         )
         pins.i2cWriteNumber(
             _addr,
-            val2,
+            val1,
             NumberFormat.Int8LE,
             true
         )
