@@ -63,4 +63,26 @@ namespace MCP23017 {
         )
     }
 
+    //% block
+    export function writeRegSeq2(reg: number, val1: number, val2: number) {
+        pins.i2cWriteNumber(
+            _addr,
+            reg,
+            NumberFormat.Int8LE,
+            true
+        )
+        pins.i2cWriteNumber(
+            _addr,
+            val2,
+            NumberFormat.Int8LE,
+            true
+        )
+        pins.i2cWriteNumber(
+            _addr,
+            val2,
+            NumberFormat.Int8LE,
+            false
+        )
+    }
+
 }
