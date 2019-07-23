@@ -120,6 +120,11 @@ namespace MCP23017 {
     }
 
     //% block
+    export function setPortAsInput(adress: ADDRESS, port: SET_PORT) {
+        pins.i2cWriteNumber(adress, port + 0xFF, NumberFormat.UInt16BE)
+    }
+
+    //% block
     export function readRegister(addr: ADDRESS, reg: REG_PIO): number {
         pins.i2cWriteNumber(addr, reg, NumberFormat.Int8LE);
         return pins.i2cReadNumber(addr, NumberFormat.Int8LE)
