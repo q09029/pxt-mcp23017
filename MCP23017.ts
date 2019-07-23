@@ -7,6 +7,26 @@ let inputABuffer = 0;
 let inputBBuffer = 0;
 let _addr = 0x20;
 
+enum PINS {
+    //% block=PIN0
+    PIN0 = 0,
+    //% block=PIN1
+    PIN1,
+    //% block=PIN2
+    PIN2,
+    //% block=PIN3
+    PIN3,
+    //% block=PIN4
+    PIN4,
+    //% block=PIN5
+    PIN5,
+    //% block=PIN6
+    PIN6,
+    //% block=PIN7
+    PIN7,
+
+}
+
 enum MCP23017REG {
     //% block=IODIRA
     IODIRA = 0,
@@ -90,7 +110,17 @@ namespace MCP23017 {
 
     //% block
     export function ReadToBuffer() {
-        readReg(MCP23017REG.GPIOA)
+        inputABuffer = readReg(MCP23017REG.GPIOA)
+    }
+
+    //% block
+    export function ReadPin(pin: PINS): boolean {
+        if (inputABuffer & (0x01 << pin)) {
+            return true
+        }
+        else {
+            return false
+        }
     }
 
     //% block
