@@ -7,6 +7,52 @@ let outputABuffer = 0;
 let outputBBuffer = 0;
 let _addr = 0x20;
 
+enum MCP23017REG {
+    //% block=IODIRA
+    IODIRA=0,
+    //% block=IODIRB
+    IODIRB,
+    //% block=IPOLA
+    IPOLA,
+    //% block=IPOLB
+    IPOLB,
+    //% block=GPINTENA
+    GPINTENA,
+    //% block=GPINTENB
+    GPINTENB,
+    //% block=DEFVALA
+    DEFVALA,
+    //% block=DEFVALB
+    DEFVALB,
+    //% block=INTCONA
+    INTCONA,
+    //% block=INTCONB
+    INTCONB,
+    //% block=IOCON1
+    IOCON1,
+    //% block=IOCON2
+    IOCON2,
+    //% block=GPPUA
+    GPPUA,
+    //% block=GPPUB
+    GPPUB,
+    //% block=INTFA
+    INTFA,
+    //% block=INTFB
+    INTFB,
+    //% block=INTCAPA
+    INTCAPA,
+    //% block=INTCAPB
+    INTCAPB,
+    //% block=GPIOA
+    GPIOA,
+    //% block=GPIOB
+    GPIOB,
+    //% block=OLATA
+    OLATA,
+    //% block=OLATB
+    OLATB
+}
 
 enum ADDRESS {                     // address for MCP23017 (configurable by tying pins 15,16,17 on the mcp23017 high or low)
     //% block=0x20
@@ -39,7 +85,7 @@ namespace MCP23017 {
 
     //% block
     export function SetIoDir(val1: number,val2: number) {
-        writeRegSeq2(val1,val2)
+        writeRegSeq2(IODIRA,val1,val2)
     }
 
     //% block
