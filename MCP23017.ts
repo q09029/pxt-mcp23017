@@ -127,7 +127,7 @@ namespace MCP23017 {
         inputABuffer = readReg(MCP23017REG.GPIOA)
     }
 
-    //% "バッファのピンの状態 |ピン %pin"
+    //% "バッファのピンの状態 ピン %pin"
     export function ReadPin(pin: PINS): number {
         if (inputABuffer & (0x01 << pin)) {
             return 1
