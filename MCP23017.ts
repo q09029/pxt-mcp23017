@@ -144,7 +144,7 @@ namespace MCP23017 {
         sensor_pin[sensor] = pin;
     }
 
-    //% block="センサの状態 |センサ %sensor"
+    //% block="センサの状態 %sensor"
     export function ReadSensor(sensor: SENSORS): number {
         if (inputABuffer & (0x01 << sensor_pin[sensor])) {
             return 1
