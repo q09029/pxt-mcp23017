@@ -124,6 +124,11 @@ namespace MCP23017 {
         writeRegSeq2(MCP23017REG.IODIRA, val1, val2)
     }
 
+    //% block="GPIOプルアップを設定する GPIOA %val1 GPIOB %val2"
+    export function SetPullUp(val1: number, val2: number) {
+        writeRegSeq2(MCP23017REG.GPPUA, val1, val2)
+    }
+
     //% block="バッファに値を読み込む"
     export function ReadToBuffer() {
         inputABuffer = readReg(MCP23017REG.GPIOA)
