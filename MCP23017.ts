@@ -112,12 +112,12 @@ enum ADDRESS {                     // address for MCP23017 (configurable by tyin
  */
 "//% weight=100 color=#0fbc12 icon="
 namespace MCP23017 {
-    //% block="アドレスを設定する %v" 
+    //% block="アドレスを設定する %addr" 
     export function setAddr(addr: ADDRESS) {
         _addr = addr;
     }
 
-    //% block=GPIO入出力を変更する
+    //% block="GPIO入出力を変更する %val1 %val2"
     export function SetIoDir(val1: number, val2: number) {
         writeRegSeq2(MCP23017REG.IODIRA, val1, val2)
     }
