@@ -112,7 +112,7 @@ enum ADDRESS {                     // address for MCP23017 (configurable by tyin
  */
 "//% weight=100 color=#0fbc12 icon="
 namespace MCP23017 {
-    //% block="アドレスを設定する %addr" 
+    //% block="アドレスを設定する |addr %addr" 
     export function setAddr(addr: ADDRESS) {
         _addr = addr;
     }
