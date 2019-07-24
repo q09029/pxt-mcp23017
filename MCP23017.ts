@@ -38,8 +38,10 @@ enum SENSORS {
     RL_SENSOR,
     SENSORS_END
 }
-let sensor_pin = [0]
-sensor_pin.length = SENSORS.SENSORS_END;
+let sensor_pin = [0, 0, 0, 0, 0, 0, 0, 0]
+
+//let sensor_pin = [0]
+//sensor_pin.length = SENSORS.SENSORS_END;
 
 enum MCP23017REG {
     //% block=IODIRA
@@ -127,7 +129,7 @@ namespace MCP23017 {
         inputABuffer = readReg(MCP23017REG.GPIOA)
     }
 
-    //% block="バッファのピンの状態 |ピン %pin"
+    ////% block="バッファのピンの状態 |ピン %pin"
     export function ReadPin(pin: PINS): number {
         if (inputABuffer & (0x01 << pin)) {
             return 1
@@ -142,7 +144,7 @@ namespace MCP23017 {
         sensor_pin[sensor] = pin;
     }
 
-    //% block
+    //% block="センサの状態 |センサ %sensor"
     export function ReadSensor(sensor: SENSORS): number {
         if (inputABuffer & (0x01 << sensor_pin[sensor])) {
             return 1
