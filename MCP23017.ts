@@ -117,7 +117,7 @@ namespace MCP23017 {
         _addr = addr;
     }
 
-    //% block="GPIOの入出力を設定する %val1 %val2"
+    //% block
     export function SetIoDir(val1: number, val2: number) {
         writeRegSeq2(MCP23017REG.IODIRA, val1, val2)
     }
@@ -139,11 +139,11 @@ namespace MCP23017 {
 
     //% block
     export function SetSensorsToPin(sensor: SENSORS, pin: PINS) {
-        sensor_pin[sensor]=pin;
+        sensor_pin[sensor] = pin;
     }
 
     //% block
-    export function ReadSensor(sensor: SENSORS): number  {
+    export function ReadSensor(sensor: SENSORS): number {
         if (inputABuffer & (0x01 << sensor_pin[sensor])) {
             return 1
         }
