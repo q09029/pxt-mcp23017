@@ -27,6 +27,20 @@ enum PINS {
 
 }
 
+enum SENSORS {
+    //% block=FR_SENSOR
+    FR_SENSOR = 0,
+    //% block=FL_SENSOR
+    FL_SENSOR,
+    //% block=RR_SENSOR
+    RR_SENSOR,
+    //% block=RL_SENSOR
+    RL_SENSOR,
+    SENSORS_END
+}
+let sensor_pin = [0]
+sensor_pin.length = SENSORS.SENSORS_END;
+
 enum MCP23017REG {
     //% block=IODIRA
     IODIRA = 0,
@@ -114,12 +128,27 @@ namespace MCP23017 {
     }
 
     //% block
-    export function ReadPin(pin: PINS): boolean {
+    export function ReadPin(pin: PINS): number {
         if (inputABuffer & (0x01 << pin)) {
-            return true
+            return 1
         }
         else {
-            return false
+            return 0
+        }
+    }
+
+    //% block
+    export function SetSensorsToPin(sensor: SENSORS, pin: PINS) {
+        sensor_pin[sensor]=pin;
+    }
+
+    //% block
+    export function ReadSensor(sensor: SENSORS): number  {
+        if (inputABuffer & (0x01 << sensor_pin[sensor])) {
+            return 1
+        }
+        else {
+            return 0
         }
     }
 
