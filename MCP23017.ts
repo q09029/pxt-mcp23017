@@ -117,7 +117,7 @@ namespace MCP23017 {
         _addr = addr;
     }
 
-    //% block="GPIO入出力を変更する %val1 %val2"
+    //% block="GPIO入出力を変更する %v"
     //% inlineInputMode=inline
     export function SetIoDir(val1: number, val2: number) {
         writeRegSeq2(MCP23017REG.IODIRA, val1, val2)
