@@ -137,7 +137,7 @@ namespace MCP23017 {
         }
     }
 
-    //% block
+    //% block="センサにピンを割り当てる |センサ %sensor |ピン %pin"
     export function SetSensorsToPin(sensor: SENSORS, pin: PINS) {
         sensor_pin[sensor] = pin;
     }
