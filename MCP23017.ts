@@ -28,13 +28,13 @@ enum PINS {
 }
 
 enum SENSORS {
-    //% block=FR_SENSOR
+    //% block=右前センサ
     FR_SENSOR = 0,
-    //% block=FL_SENSOR
+    //% block=左前センサ
     FL_SENSOR,
-    //% block=RR_SENSOR
+    //% block=右後ろセンサ
     RR_SENSOR,
-    //% block=RL_SENSOR
+    //% block=左後ろセンサ
     RL_SENSOR,
     SENSORS_END
 }
@@ -112,7 +112,7 @@ enum ADDRESS {                     // address for MCP23017 (configurable by tyin
  */
 "//% weight=100 color=#0fbc12 icon="
 namespace MCP23017 {
-    //% block
+    //% block="アドレスを設定する"
     export function setAddr(addr: ADDRESS) {
         _addr = addr;
     }
