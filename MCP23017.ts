@@ -122,7 +122,7 @@ namespace MCP23017 {
         writeRegSeq2(MCP23017REG.IODIRA, val1, val2)
     }
 
-    //% block
+    //% block="バッファに値を読み込む"
     export function ReadToBuffer() {
         inputABuffer = readReg(MCP23017REG.GPIOA)
     }
